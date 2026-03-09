@@ -9,6 +9,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --soil: #2c1810;
+  --amber: #d4800a;
+  --gold: #f2b233;
+  --cream: #faf3e0;
+  --sage: #5c7a5c;
+  --rust: #c44b2b;
+  --light: #fffdf7;
 }
 /* 
 a {

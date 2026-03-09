@@ -3,7 +3,7 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-    <div className='h-20 w-full flex justify-between items-center'>
+    <div className='h-20 w-full flex justify-between items-center md:px-8 md:border-b-2 border-zinc-400/10'>
         <div className='w-auto h-auto'>
             <h1 className='font-extrabold font-["Times"] text-4xl'>Entre<span className='text-[#D4800A]'>Skills</span>Hub</h1>
         </div>
