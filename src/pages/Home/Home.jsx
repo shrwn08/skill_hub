@@ -3,6 +3,8 @@ import Hero from '../../components/Hero/Hero'
 import Works from '../../components/HowItWorks/Works'
 import Stats from '../../components/Stats/Stats'
 import Features from '../../components/Features/Features'
+import Testimonial from '../../components/Testimonial/Testimonial'
+import CTA from '../../components/CTA/CTA'
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
         <Works />
         <Stats />
         <Features />
+        <Testimonial />
+        <CTA/>
     </div>
   )
 }
