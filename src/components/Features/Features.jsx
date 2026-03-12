@@ -3,7 +3,7 @@ import React from "react";
 const Features = () => {
   return (
     <section className="features-bg bg-(--cream) py-24 px-16">
-      <div className="features-grid grid md:grid-cols-[1fr_1.5fr] gap-16 text-center">
+      <div className="features-grid grid justify-center items-center md:grid-cols-[1fr_1.5fr] gap-16 text-center">
         <div>
           <div className="section-label text-sm font-medium uppercase mb-4 text-(--amber)">Platform Features</div>
           <h2 className="mb-8 font-[fraunces] text-[clamp(2rem, 4vw, 3rem)] font-black ">Everything you need to launch</h2>
@@ -52,7 +52,8 @@ const Features = () => {
         </div>
 
         {/* { <!-- Dashboard mockup -->} */}
-        <div className="dashboard-mock bg-white rounded-3xl p-6 shadow-[0_8px_48px_rgba(44,24,16,0.1)]">
+        <div className="h-full w-full flex justify-center items-center">
+        <div className="dashboard-mock md:w-3/5 flex flex-col justify-center  bg-white rounded-3xl p-6 shadow-[0_8px_48px_rgba(44,24,16,0.1)]">
           <div className="dash-header flex items-center gap-2 mb-6 pb-4 bb-[1px_solid_rgba(44,24,16,0.06)]">
             <div className="dot red w-2.5 h-2.5 rounded-full bg-[#ff5f56] "></div>
             <div className="dot yellow w-2.5 h-2.5 rounded-full bg-[#ffbd2e] "></div>
@@ -102,6 +103,7 @@ const Features = () => {
             </div>
             <div className="mini-btn bg-(--soil) text-(--cream) text-xs py-[0.4rem] px-[0.8rem] rounded-2xl cursor-pointer flex justify-center items-center">Book</div>
           </div>
+        </div>
         </div>
       </div>
     </section>
