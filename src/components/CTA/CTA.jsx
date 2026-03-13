@@ -1,9 +1,10 @@
 import React from "react";
+import "./cta.css"
 
 const CTA = () => {
   return (
-    <div class="cta-section bg-(--soil) m-[0_4rem_4rem] rounded-4xl pt-20 px-16 text-center relative overflow-hidden">
-      <h2 className="font-[Fraunces] text-[clamp(2rem, 4vw, 3rem)] font-black text-(--cream) mb-4 relative z-10">
+    <div class="cta-section bg-(--soil) m-[0_4rem_4rem] rounded-4xl py-20 px-16 text-center relative overflow-hidden ">
+      <h2 className="font-[Fraunces] text-[clamp(2rem,4vw,3rem)] font-black text-(--cream) mb-4 relative z-10">
         Your business idea is
         <br />
         <em class="font-italic text-(--gold)">waiting for you.</em>

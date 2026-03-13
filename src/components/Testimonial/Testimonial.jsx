@@ -8,7 +8,7 @@ const Testimonial = () => {
     <h2 className='font-[Fraunces] text-[clamp(2rem, 4vw, 3rem)] font-black'>Real people, real launches</h2>
   </div>
  
-  <div className="testi-grid grid grid-cols-3 gap-6 mt-12">
+  <div className="testi-grid grid md:grid-cols-3 gap-6 mt-12">
     <div className="testi-card p-8 rounded-3xl border border-solid border-[rgba(44,24,16,0.08)] transition-[border-color_0.2s_transform_0.2s] hover:text-(--amber) hover:transform-[translateY(-4px)]">
       <div className="testi-quote font-[Fraunces] text-[2rem] text-(--amber) mb-4">"</div>
       <p className="testi-text text-[0.9rem] opacity-[0.7] mb-6">The roadmap feature literally walked me through every step. I had my tailoring business registered and taking orders within 6 weeks of joining.</p>
