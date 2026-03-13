@@ -8,7 +8,7 @@ const Footer = () => {
             <h1 className='font-extrabold font-["Times"] text-4xl'>Entre<span className='text-[#D4800A]'>Skills</span>Hub</h1>
         </div>
         <div className='md:flex justify-between items-center '>
-            © 2025 EntreSkill Hub · All rights reserved
+            © 2026 EntreSkill Hub · All rights reserved
         </div>
         <div className='w-auto h-12 rounded-full flex justify-between items-center gap-2 px-4 py-2 hover:cursor-pointer '>
          <span className='font-semibold hover:cursor-pointer hover:text-[#D4800A]  gap-0 '>Privacy</span>
