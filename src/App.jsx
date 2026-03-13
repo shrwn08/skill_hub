@@ -9,14 +9,12 @@ import CTA from './components/CTA'
 const App = () => {
   return (
     <div className='h-min-screen w-full '>
-        <Header />
           <Navbar />
           <Hero />
           <Stats />
           <Features />
           <Testimonials />
           <CTA />
-        <Footer />
     </div>
   )
 }

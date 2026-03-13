@@ -18,3 +18,28 @@ body {
   background: var(--light);
   color: var(--soil);
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 4s ease-in-out infinite;
+}
+.float-delay-1 {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+.float-delay-2 {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
