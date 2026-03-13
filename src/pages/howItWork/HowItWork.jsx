@@ -5,8 +5,7 @@ import HiwSteps from '../../components/steps/HiwSteps'
 const HowItWork = () => {
   return (
     <div className="page">
-        <HiwHero />
-        <HiwSteps />
+      How It works
     </div>
   )
 }

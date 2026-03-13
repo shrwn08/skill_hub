@@ -4,15 +4,20 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer/Footer'
 import Home from './pages/Home/Home'
 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HowItWorks from "./pages/howItWork/HowItWork";
 
-const App = () => {
+function App() {
   return (
-    <div className='h-min-screen w-full '>
-    <Navbar />
-          <Home />
-          <Footer />
-    </div>
-  )
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;
