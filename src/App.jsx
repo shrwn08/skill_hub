@@ -1,15 +1,21 @@
 import React from 'react'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import Main from './pages/Main/Main'
-import HowItWork from './pages/howItWork/HowItWork'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Stats from './components/stats'
+import Features from './components/Features'
+import Testimonials from './components/Testimonials'
+import CTA from './components/CTA'
 
 const App = () => {
   return (
     <div className='h-min-screen w-full '>
         <Header />
-        {/* <Main /> */}
-        <HowItWork />
+          <Navbar />
+          <Hero />
+          <Stats />
+          <Features />
+          <Testimonials />
+          <CTA />
         <Footer />
     </div>
   )
