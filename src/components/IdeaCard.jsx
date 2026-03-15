@@ -9,7 +9,7 @@ const IdeaCard = ({ idea, onClick }) => {
       <div className="flex justify-between p-6">
         <span className="text-3xl">{idea.emoji}</span>
 
-        <span className="text-xs text-(--amber) bg-amber-100 px-2 py-1 rounded-full">
+        <span className="text-xs text-(--amber) flex justify-center items-center bg-amber-100 px-2 py-1 rounded-full">
           {idea.match}% match
         </span>
       </div>

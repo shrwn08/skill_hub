@@ -1,7 +1,7 @@
 import { useState } from "react";
-import IdeaCard from "../components/IdeaCard";
-import FilterBar from "../components/FilterBar";
-import { ideas } from "../data/ideas";
+import IdeaCard from "../../components/IdeaCard";
+import FilterBar from "../../components/FilterBar";
+import { ideas } from "../../data/idea";
 
  const BusinessIdeas = () => {
   const [filter, setFilter] = useState("all");
