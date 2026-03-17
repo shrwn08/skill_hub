@@ -1,7 +1,7 @@
 import React from "react";
-import MentorCard from "../components/MentorCard";
-import MentorCTA from "../components/MentorCTA";
-import { mentors } from "../data/mentors";
+import MentorCard from "../../components/MentorCard";
+import MentorCTA from "../../components/MentorCTA";
+import { mentors } from "../../data/mentors";
 
 const Mentors = () => {
   return (

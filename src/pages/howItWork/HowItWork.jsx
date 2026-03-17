@@ -105,7 +105,7 @@ const HowItWorks = () => {
           ]}
           visual={
             <div>
-              <MentorCard avatar={{ icon: '👩', bg: 'rgba(212,128,10,0.12)' }} name="Priya Sharma" field="Fashion & Retail" rating="4.9" />
+              <MentorCard avatar={{ icon: '👩', bg: 'rgba(212,128,10,0.12)' }} name="Priya Sharma" field="Fashion & Retail" rating="4.9"  />
               <MentorCard avatar={{ icon: '👨', bg: 'rgba(92,122,92,0.12)' }} name="James Oduya" field="Handcraft Business" rating="4.8" />
             </div>
           }
