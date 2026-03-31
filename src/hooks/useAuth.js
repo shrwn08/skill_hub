@@ -14,7 +14,7 @@ export function useAuth(){
     const initialized = useSelector(selectInitialized);
 
 
-    const login = (email, password) =>dispatch(loginUser(email, password));
+    const login = (email, password) =>dispatch(loginUser({email, password}));
 
     const register = (formData) => dispatch(resigterUser(formData));
 

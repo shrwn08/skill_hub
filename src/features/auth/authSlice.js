@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { post } from "../../api/client";
+import { get, post } from "../../api/client";
 
 
 export const loginUser = createAsyncThunk("auth/login", async({email, password}, {rejectWithValue})=>{
@@ -13,15 +13,25 @@ export const loginUser = createAsyncThunk("auth/login", async({email, password},
     }
 });
 
-export const resigterUser = createAsyncThunk("auth/register", async (formData, {rejectWithValue})=>{
+export const resigterUser = createAsyncThunk("/auth/register", async (formData, {rejectWithValue})=>{
     try {
         const res = await post("/auth/register",formData);
         localStorage.setItem("token", res.token);
+        console.log(res)
     } catch (error) {
         return rejectWithValue(error.message);
     }
 });
 
+export const fetchCurrentUser = createAsyncThunk("auth/fetchMe", async (_,{rejectWithValue})=>{
+    try {
+        const res = await get("/auth/me")
+        return res.data;
+    } catch (error) {
+        localStorage.removeItem("token");
+        return rejectWithValue(error.message);
+    }
+})
 
 
 const authSlice =createSlice({
@@ -70,8 +80,24 @@ const authSlice =createSlice({
         .addCase(resigterUser.fulfilled, (state, action)=>{
             state.status = "succeed";
             state.user = action.payload;
+             state.initialized = true;
         })
         .addCase(resigterUser.rejected, (state, action)=>{
+            state.status = "failed";
+            state.error = action.payload;
+        });
+
+        //fetchMe
+        builder.addCase(fetchCurrentUser.pending, (state)=>{
+            state.status = "loading";
+            state.error = null;
+        })
+        .addCase(fetchCurrentUser.fulfilled, (state, action)=>{
+            state.status = "succeed";
+            state.user = action.payload;
+             state.initialized = true;
+        })
+        .addCase(fetchCurrentUser.rejected, (state, action)=>{
             state.status = "failed";
             state.error = action.payload;
         })
