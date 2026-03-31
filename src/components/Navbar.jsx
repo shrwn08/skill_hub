@@ -6,7 +6,7 @@ import { logout } from "../features/auth/authSlice";
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const dispatch = useDispatch();
 
 
