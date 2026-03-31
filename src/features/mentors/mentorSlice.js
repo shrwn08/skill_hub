@@ -3,7 +3,7 @@ import { get, post } from "../../api/client";
 
 export const fetchMentors = createAsyncThunk(
   "mentors/fetchAll",
-  async ({ expertise = "", search = "" } = {}, { rejectWithvalue }) => {
+  async ({ expertise = "", search = "" } = {}, { rejectWithValue }) => {
     try {
       const params = new URLSearchParams();
 
@@ -12,23 +12,48 @@ export const fetchMentors = createAsyncThunk(
       const qs = params.toString() ? `?${params.toString()}` : "";
       const res = await get(`/mentors${qs}`);
 
+      console.log("MENTORS API RESPONSE:", res);
+const mentorsArray = res.data || res.mentors || res || [];
+
       const data = search
-        ? (res.data || []).filter(
+        ? mentorsArray.filter(
             (m) =>
-              m.user?.name
-                ?.toLowerCase()
-                .includes(search.toLocaleLowerCase()) ||
+              m.user?.name?.toLowerCase().includes(search.toLowerCase()) ||
               m.expertise?.some((e) =>
-                e.toLowerCase().includes(search.toLowerCase()),
-              ),
+                e.toLowerCase().includes(search.toLowerCase())
+              )
           )
-        : res.data || [];
+        : mentorsArray;
 
       return data;
     } catch (error) {
-      return rejectWithvalue(error.message);
+      return rejectWithValue(error.message);
     }
-  },
+  }
+);
+
+export const fetchMentorSlots = createAsyncThunk(
+  "mentors/fetchSlots",
+  async (mentorId, { rejectWithValue }) => {
+    try {
+      const res = await get(`/mentors/${mentorId}/slots`);
+      return { mentorId, slots: res.data };
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
+export const applyAsMentor = createAsyncThunk(
+  "mentors/apply",
+  async (formData, { rejectWithValue }) => {
+    try {
+      const res = await post("/mentors/apply", formData);
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
 );
 
 const mentorsSlice = createSlice({
@@ -65,5 +90,29 @@ const mentorsSlice = createSlice({
         s.status = "failed";
         s.error = a.payload;
       });
+       builder
+      .addCase(fetchMentorSlots.pending,   (s) => { s.slotsStatus = "loading"; })
+      .addCase(fetchMentorSlots.fulfilled, (s, a) => {
+        s.slotsStatus = "succeeded";
+        s.slots[a.payload.mentorId] = a.payload.slots;
+      })
+      .addCase(fetchMentorSlots.rejected,  (s) => { s.slotsStatus = "failed"; });
+
+    builder
+      .addCase(applyAsMentor.pending,   (s) => { s.applyStatus = "loading"; s.error = null; })
+      .addCase(applyAsMentor.fulfilled, (s) => { s.applyStatus = "succeeded"; })
+      .addCase(applyAsMentor.rejected,  (s, a) => { s.applyStatus = "failed"; s.error = a.payload; });
+  
   },
 });
+
+export const { setMentorFilter, resetApplyStatus } = mentorsSlice.actions;
+
+export const selectMentors      = (s) => s.mentors.list;
+export const selectMentorStatus = (s) => s.mentors.status;
+export const selectMentorSlots  = (mentorId) => (s) => s.mentors.slots[mentorId] || [];
+export const selectApplyStatus  = (s) => s.mentors.applyStatus;
+export const selectMentorFilters= (s) => s.mentors.filters;
+export const selectMentorError  = (s) => s.mentors.error;
+
+export default mentorsSlice.reducer;
