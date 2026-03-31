@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { loginUser, selectAuthError, selectAuthStatus, selectInitialized, selectIsLoggedIn, selectUser } from "../features/auth/authSlice";
+import { clearAuthError, loginUser, resigterUser, selectAuthError, selectAuthStatus, selectInitialized, selectIsLoggedIn, selectUser } from "../features/auth/authSlice";
 
 
 export function useAuth(){
@@ -16,7 +16,7 @@ export function useAuth(){
 
     const login = (email, password) =>dispatch(loginUser(email, password));
 
-    const register = (formData) => dispatch();
+    const register = (formData) => dispatch(resigterUser(formData));
 
     const signOut = () => {
         dispatch();
@@ -27,7 +27,7 @@ export function useAuth(){
 
     const changePassword = (password)=>dispatch();
 
-    const clearError = () => dispatch();
+    const clearError = () => dispatch(clearAuthError());
 
     return {user, isLoggedIn, status, error, initialized, login, register, signOut, updateProfile, changePassword, clearError};
 }

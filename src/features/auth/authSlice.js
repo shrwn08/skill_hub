@@ -13,6 +13,15 @@ export const loginUser = createAsyncThunk("auth/login", async({email, password},
     }
 });
 
+export const resigterUser = createAsyncThunk("auth/register", async (formData, {rejectWithValue})=>{
+    try {
+        const res = await post("/auth/register",formData);
+        localStorage.setItem("token", res.token);
+    } catch (error) {
+        return rejectWithValue(error.message);
+    }
+});
+
 
 
 const authSlice =createSlice({
@@ -45,14 +54,27 @@ const authSlice =createSlice({
             state.error = null;
         })
         .addCase(loginUser.fulfilled, (state, action)=>{
-            state.status = "succeeded";
+            state.status = "succeed";
             state.user =  action.payload;
             state.initialized = true;
         })
         .addCase(loginUser.rejected, (state,action)=>{
             state.status = "failed";
             state.error = action.payload;
-        } )
+        } );
+        //register
+        builder.addCase(resigterUser.pending, (state)=>{
+            state.status = "loading";
+            state.error = null;
+        })
+        .addCase(resigterUser.fulfilled, (state, action)=>{
+            state.status = "succeed";
+            state.user = action.payload;
+        })
+        .addCase(resigterUser.rejected, (state, action)=>{
+            state.status = "failed";
+            state.error = action.payload;
+        })
     }
 })
 
