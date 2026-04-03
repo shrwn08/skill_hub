@@ -4,6 +4,7 @@ import mentorsReducer   from "../features/mentors/mentorSlice";
 import ideasReducer from "../features/ideas/ideasSlice"
 import progressReducer from "../features/progress/progressSlice"
 import bookmarksReducer from "../features/bookmarks/bookmarksSlice"
+import sessionsReducer from "../features/sessions/sessionsSlice"
 
 export const store = configureStore({
     reducer : {
@@ -12,5 +13,6 @@ export const store = configureStore({
         ideas   :  ideasReducer,
         progress:  progressReducer,
          bookmarks: bookmarksReducer,
+         sessions:  sessionsReducer,
     }
 });

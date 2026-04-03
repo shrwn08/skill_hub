@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MentorCard from "../../components/MentorCard";
 import MentorCTA from "../../components/MentorCTA";
-import { mentors as staticMentors } from "../../data/mentors";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMentors, selectMentorFilters, selectMentors, selectMentorStatus, setMentorFilter } from "../../features/mentors/mentorSlice";
