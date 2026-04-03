@@ -1,16 +1,99 @@
-# React + Vite
+# SkillHub Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔗 Repository: https://github.com/shrwn08/skill_hub.git
 
-Currently, two official plugins are available:
+This is the frontend of the SkillHub platform, built using React and Vite. It provides a modern UI for users to explore mentors, resources, sessions, and ideas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- React.js
+- Vite
+- Redux Toolkit
+- React Router
+- Axios
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📁 Project Structure
 
-## Expanding the ESLint configuration
+src/
+│── api/               
+│── app/               
+│── components/        
+│── features/          
+│── hooks/             
+│── pages/             
+│── data/              
+│── App.jsx            
+│── main.jsx           
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ⚙️ Installation
+
+git clone https://github.com/shrwn08/skill_hub.git
+cd skill_hub
+npm install
+
+## ▶️ Run App
+
+npm run dev
+
+App runs at:
+http://localhost:5173
+
+## 🔗 API Configuration
+
+Update base URL in:
+
+src/api/client.js
+
+Example:
+
+const API = axios.create({
+  baseURL: "http://localhost:5000/api",
+});
+
+## 📱 Pages
+
+- Home  
+- Dashboard  
+- Mentors  
+- Sessions  
+- Resources  
+- Ideas  
+- Bookmarks  
+- Profile  
+- Contact  
+- Authentication  
+
+## 🔐 Authentication
+
+- JWT-based login/signup  
+- Stored in Redux  
+- Protected routes  
+
+## 📦 Features
+
+- Mentor browsing & booking  
+- Resource exploration  
+- Idea system  
+- Bookmark system  
+- Progress tracking  
+- Responsive UI  
+
+## 🧠 State Management
+
+Redux Toolkit slices:
+- auth  
+- mentors  
+- sessions  
+- bookmarks  
+- ideas  
+- progress  
+
+## 🛠️ Future Improvements
+
+- Dark mode  
+- Real-time chat  
+- Notifications  
+
+## 👨‍💻 Author
+
+Shrawan Singh
