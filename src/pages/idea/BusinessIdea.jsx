@@ -3,7 +3,7 @@ import IdeaCard from "../../components/IdeaCard";
 import FilterBar from "../../components/FilterBar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchIdeas, selectCurrentPage, selectFilters, selectIdeas, selectIdeasPages, selectIdeasStatus, setFilter, setPage } from "../../features/ideas/ideasSlice";
+import { fetchIdeas, selectCurrentPage, selectFilters, selectIdeas, selectIdeasPages, selectIdeasStatus, setFilters, setPage } from "../../features/ideas/ideasSlice";
 import Spinner from "../../components/Spinner";
 
  const BusinessIdeas = () => {
@@ -19,7 +19,7 @@ import Spinner from "../../components/Spinner";
     dispatch(fetchIdeas({ category: filters.category, search: filters.search, page: currentPage }));
   }, [dispatch, filters.category, filters.search, currentPage]);
 
-  const handleFilter = (category) => dispatch(setFilter({ category }));
+  const handleFilter = (category) => dispatch(setFilters({ category }));
 
   return (
     <div className="pt-0">
@@ -32,7 +32,7 @@ import Spinner from "../../components/Spinner";
         <div className="relative max-w-md">
           <span className="absolute left-4 top-1/2 -translate-y-1/2 opacity-40">🔍</span>
           <input type="text" placeholder="Search ideas…" value={filters.search}
-            onChange={(e) => dispatch(setFilter({ search: e.target.value }))}
+            onChange={(e) => dispatch(setFilters({ search: e.target.value }))}
             className="w-full pl-10 pr-4 py-3 border border-(--soil)/20 rounded-full text-sm outline-none focus:border-(--amber) bg-white transition" />
         </div>
       </section>

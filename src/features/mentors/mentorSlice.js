@@ -8,6 +8,7 @@ export const fetchMentors = createAsyncThunk(
       const params = new URLSearchParams();
 
       if (expertise) params.set("expertise", expertise);
+       if (search) params.set("search", search);
 
       const qs = params.toString() ? `?${params.toString()}` : "";
       const res = await get(`/mentors${qs}`);

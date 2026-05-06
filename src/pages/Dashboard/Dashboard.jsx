@@ -6,6 +6,7 @@ import { fetchAllProgress, selectAllProgress, selectProgressStatus } from '../..
 import { fetchBookmarks, selectBookmarks } from '../../features/bookmarks/bookmarksSlice';
 import { fetchMySessions, selectSessions, selectUpcoming } from '../../features/sessions/sessionsSlice';
 import Spinner from '../../components/Spinner';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
     const {initialized, isLoggedIn} = useRequireAuth();

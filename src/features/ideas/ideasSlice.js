@@ -60,8 +60,8 @@ const ideasSlice = createSlice({
         error : null,
         filters : {category : "all", search : ""},
     },
-    reduces:{
-            setFilter(state, action) {
+    reducers:{
+          setFilters(state, action) {
       state.filters = { ...state.filters, ...action.payload };
       state.currentPage = 1;
     },
@@ -95,7 +95,7 @@ const ideasSlice = createSlice({
     }
 });
 
-export const { setFilter, setPage, clearDetail } = ideasSlice.actions;
+export const { setFilters, setPage, clearDetail } = ideasSlice.actions;
 
 export const selectIdeas        = (s) => s.ideas.list;
 export const selectIdeasStatus  = (s) => s.ideas.status;

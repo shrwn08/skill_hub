@@ -17,7 +17,7 @@ export const resigterUser = createAsyncThunk("/auth/register", async (formData, 
     try {
         const res = await post("/auth/register",formData);
         localStorage.setItem("token", res.token);
-        console.log(res)
+        return res.data;
     } catch (error) {
         return rejectWithValue(error.message);
     }

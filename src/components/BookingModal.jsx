@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { selectIsLoggedIn } from "../features/auth/authSlice";
-import { selectMentorSlots } from "../features/mentors/mentorSlice";
-import { useState } from "react";
+import { fetchMentorSlots, selectMentorSlots } from "../features/mentors/mentorSlice";
+import { useEffect, useState } from "react";
+import { bookSession, resetBookStatus, selectBookStatus, selectSessionError } from "../features/sessions/sessionsSlice";
 
 export const FILTERS = [
   { label: "All Mentors", value: "" },
@@ -18,7 +19,7 @@ function BookingModal({ mentor, onClose }) {
   const navigate   = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const slots      = useSelector(selectMentorSlots(mentor._id));
-  const bookStatus = useSelector(selectSessBookStatus);
+  const bookStatus = useSelector(selectBookStatus);
   const bookError  = useSelector(selectSessionError);
   const [sel, setSel]     = useState(null);
   const [date, setDate]   = useState("");
@@ -27,7 +28,7 @@ function BookingModal({ mentor, onClose }) {
   useEffect(() => { dispatch(fetchMentorSlots(mentor._id)); }, [dispatch, mentor._id]);
   useEffect(() => {
     if (bookStatus === "succeeded") { dispatch(resetBookStatus()); onClose(true); }
-  }, [bookStatus]);
+  }, [bookStatus, dispatch, mentor._id, onClose]);
 
   const book = () => {
     if (!isLoggedIn) { navigate("/login"); return; }
