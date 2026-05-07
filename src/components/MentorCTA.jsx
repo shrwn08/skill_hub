@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MentorCTA = () => {
   return (
@@ -17,10 +18,10 @@ const MentorCTA = () => {
       </div>
 
       {/* Button */}
-      <div className="flex md:justify-end">
-        <button className="bg-(--gold) text-(--soil) px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold hover:-translate-y-1 transition">
+      <div className="flex md:justify-end ">
+        <Link to="/mentor-apply" className="bg-(--gold) text-(--soil) px-6 sm:px-8 py-2 sm:py-3 rounded-full font-semibold hover:-translate-y-1 transition hover:cursor-pointer">
           Apply to Mentor →
-        </button>
+        </Link>
       </div>
 
     </div>
